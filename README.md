@@ -1,1 +1,4 @@
-# ansible_scripts
+# ansible_scriptsAnsible configuration 
+Update cache 
+Update kernel 
+Database installation 
