@@ -1,0 +1,16 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: Create copy_logs.sh script
+      copy:
+        dest: /home/vagrant/scripts/copy_logs.sh
+        content: |
+          #!/bin/bash
+          cp /var/log/*.log /home/vagrant/scripts
+        mode: '0755'
+      notify: Restart script
+      become_user: root
+
+  handlers:
+    - name: Restart script
+      script: /home/vagrant/scripts/copy_logs.sh
